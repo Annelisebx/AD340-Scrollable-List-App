@@ -25,4 +25,13 @@
     <string name="affirmation8">I have the courage to follow my heart.</string>
     <string name="affirmation9">Things will unfold at precisely the right time.</string>
     <string name="affirmation10">I will be present in all the moments that this day brings.</string>
+    //Titles
+    <string name="title1">Australia Zoo</string>
+    <string name="title2">Fun day!</string>
+    <string name="title3">I love the sun and sand</string>
+
+    //Captions
+    <string name="caption1">My first time seeing an emu!</string>
+    <string name="caption2">Visiting a friend in DC and touring the capitol!</string>
+    <string name="caption3">Beautiful beach in the Northeast coast of Australia!</string>
 </resources>

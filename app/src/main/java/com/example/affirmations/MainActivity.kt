@@ -47,6 +47,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.affirmations.data.Datasource
+import com.example.affirmations.model.BlogPost
 
 class MainActivity : ComponentActivity() {
 
@@ -59,7 +60,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    AffirmationsApp()
+                    BlogApp()
                 }
             }
         }
@@ -71,6 +72,45 @@ fun AffirmationsApp() {
     AffirmationList(
         affirmationList = Datasource().loadAffirmations(),
     )
+}
+@Composable
+fun BlogApp() {
+    BlogList(
+        blogList = Datasource().loadPosts(),
+    )
+}
+
+@Composable
+fun BlogList(blogList: List<BlogPost>, modifier: Modifier = Modifier) {
+    LazyColumn(modifier = modifier) {
+        items(blogList) { blogPost ->
+            BlogCard(
+                blogPost = blogPost,
+                modifier = Modifier.padding(8.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun BlogCard(blogPost: BlogPost, modifier: Modifier = Modifier) {
+    Card(modifier = modifier) {
+        Column {
+            Image(
+                painter = painterResource(blogPost.imageResourceId),
+                contentDescription = stringResource(blogPost.stringTitleId),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(194.dp),
+                contentScale = ContentScale.Crop
+            )
+            Text(
+                text = LocalContext.current.getString(blogPost.stringCaptionId),
+                modifier = Modifier.padding(16.dp),
+                style = MaterialTheme.typography.headlineSmall
+            )
+        }
+    }
 }
 @Composable
 fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {

@@ -17,6 +17,7 @@ package com.example.affirmations.data
 
 import com.example.affirmations.R
 import com.example.affirmations.model.Affirmation
+import com.example.affirmations.model.BlogPost
 
 /**
  * [Datasource] generates a list of [Affirmation]
@@ -34,5 +35,13 @@ class Datasource() {
             Affirmation(R.string.affirmation8, R.drawable.image8),
             Affirmation(R.string.affirmation9, R.drawable.image9),
             Affirmation(R.string.affirmation10, R.drawable.image10))
+    }
+
+    fun loadPosts(): List<BlogPost> {
+        return listOf<BlogPost>(
+            BlogPost(R.string.title1, R.string.caption1, R.drawable.annelise1),
+            BlogPost(R.string.title3, R.string.caption3, R.drawable.annelise3),
+            BlogPost(R.string.title2, R.string.caption2, R.drawable.annelise2),
+        )
     }
 }
